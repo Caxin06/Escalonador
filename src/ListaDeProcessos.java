@@ -41,14 +41,43 @@ public class ListaDeProcessos {
         }
         return removido.processo;
     }
+    public Processo removerDoFinal(){
+        if(this.cabeça == null){
+            return null;
+        }
+        Node removido = cauda;
+        if (cabeça == cauda){
+            cabeça = null;
+            cauda = null;
+        } else {
+            cauda.anterior.proximo = null;
+            cauda = cauda.anterior;
+            removido.proximo = null;
+        }
+        return removido.processo;
+    }
     public String listarProcessos() {
+        if (cabeça == null) {
+            return "Nenhum processo";
+        }
+
         StringBuilder sb = new StringBuilder();
         Node atual = cabeça;
+        int contador = 0;
+
         while (atual != null) {
-            sb.append(atual.processo.toString()).append(" ");
+            if (contador > 0 && contador % 10 == 0) {
+                sb.append("\n                     "); // Indentação para alinhamento
+            }
+            sb.append("P").append(atual.processo.id);
+            if (atual.proximo != null) {
+                sb.append(", ");
+            }
             atual = atual.proximo;
+            contador++;
         }
-        return sb.toString().trim();
+
+        return sb.toString();
     }
 
 }

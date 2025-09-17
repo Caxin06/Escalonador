@@ -74,14 +74,18 @@ public class Main {
 
         int ciclo = 1;
         while (true) {
-            System.out.println("Ciclo " + ciclo);
+            System.out.println("\n CICLO " + ciclo);
             scheduler.imprimirEstado();
+
+            System.out.println("\n===== EXECUÇÃO ====");
             scheduler.executarCicloDeCPU();
 
             if (scheduler.estaVazio()) {
-                System.out.println("Todos os processos foram concluídos.");
+                System.out.println("\n TODOS OS PROCESSOS FORAM CONCLUIDOS");
+                System.out.println("Total de ciclos executados: " + ciclo);
                 break;
             }
+
             ciclo++;
         }
     }
