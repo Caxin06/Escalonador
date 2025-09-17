@@ -9,7 +9,11 @@ public class ListaDeProcessos {
         this.tamanho = 0;
     }
 
-    public void AdcionarFim(Processo processo ) {
+    public boolean isEmpyt(){
+        return cabeça == null;
+    }
+
+    public void adcionarFim(Processo processo ) {
         Node novoNo = new Node( processo );
 
         if (this.cabeça == null) {
@@ -36,6 +40,14 @@ public class ListaDeProcessos {
         }
         return removido.processo;
     }
-
+    public String listarProcessos() {
+        StringBuilder sb = new StringBuilder();
+        Node atual = cabeça;
+        while (atual != null) {
+            sb.append(atual.processo.toString()).append(" ");
+            atual = atual.proximo;
+        }
+        return sb.toString().trim();
+    }
 }
 
