@@ -20,6 +20,7 @@ public class ListaDeProcessos {
             this.cabeça = novoNo;
             this.cauda = novoNo;
             tamanho++;
+            return;
         }
         cauda.proximo = novoNo;
         novoNo.anterior = cauda;
@@ -49,5 +50,6 @@ public class ListaDeProcessos {
         }
         return sb.toString().trim();
     }
+
 }
 

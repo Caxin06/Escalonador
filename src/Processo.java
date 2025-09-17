@@ -3,10 +3,11 @@ public class Processo {
     String nome;
     int prioridade;
     int ciclosNecessarios;
-    int recursoNecessario;
+    String recursoNecessario;
 
 
-    public Processo(int id, String nome,int prioridade, int ciclosNecessarios, int recursoNecessario) {
+
+    public Processo(int id, String nome,int prioridade, int ciclosNecessarios, String recursoNecessario) {
         this.id = id;
         this.nome = nome;
         this.prioridade = prioridade;

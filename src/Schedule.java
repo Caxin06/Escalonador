@@ -6,17 +6,17 @@ public class Schedule {
     ListaDeProcessos ListaAltaPrioridade = new ListaDeProcessos();
     ListaDeProcessos ListaBloqueados = new ListaDeProcessos();
 
-    public void AdicionarProcesso(Processo processo) {
+    public void adicionarProcesso(Processo processo) {
         switch (processo.prioridade) {
             case 1:
-                ListaBaixaPrioridade.adcionarFim(processo);
+                ListaAltaPrioridade.adcionarFim(processo);
                 break;
             case 2:
                 ListaMediaPrioridade.adcionarFim(processo);
                 break;
 
             case 3:
-                ListaAltaPrioridade.adcionarFim(processo);
+                ListaBaixaPrioridade.adcionarFim(processo);
                 break;
 
             default:
@@ -28,7 +28,7 @@ public class Schedule {
         Processo processo = ListaBloqueados.removerDoInicio();
         if (processo != null) {
             System.out.println("Desbloqueando processo " + processo.nome + " (ID " + processo.id + ")");
-            AdicionarProcesso(processo);
+            adicionarProcesso(processo);
         }
     }
 
@@ -37,12 +37,18 @@ public class Schedule {
         if (processo == null) {
             return false;
         }
-
+        boolean discoOcupado = false;
         if ("DISCO".equals(processo.recursoNecessario)) {
-            // Bloqueia o processo na primeira vez que solicita o recurso
-            ListaBloqueados.adcionarFim(processo);
-            System.out.println("Processo " + processo.nome + " (ID " + processo.id + ") bloqueado por recurso DISCO");
-            return true;
+            if (discoOcupado) {
+                // Reinsere o processo no final da lista, pois recurso está ocupado
+                lista.adcionarFim(processo);
+                System.out.println("Processo " + processo.nome + " (ID " + processo.id + ") aguardando recurso DISCO");
+                return true;
+            } else {
+                // Recurso liberado, ocupa o recurso e executa o processo
+                discoOcupado = true;
+                System.out.println("Processo " + processo.nome + " (ID " + processo.id + ") está usando o recurso DISCO");
+            }
         }
 
         // Executa o processo
@@ -51,12 +57,16 @@ public class Schedule {
 
         if (processo.ciclosNecessarios == 0) {
             System.out.println("Processo " + processo.nome + " (ID " + processo.id + ") terminou a execução");
+            if ("DISCO".equals(processo.recursoNecessario)) {
+                discoOcupado = false; // libera o recurso
+            }
         } else {
             // Reinsere no final da lista original
             lista.adcionarFim(processo);
         }
         return true;
     }
+
 
     public void executarCicloDeCPU() {
         desbloquearProcesso();
@@ -104,8 +114,8 @@ public class Schedule {
     public boolean estaVazio() {
         return ListaAltaPrioridade.isEmpyt() &&
                 ListaMediaPrioridade.isEmpyt() &&
-                ListaMediaPrioridade.isEmpyt() &&
-                ListaMediaPrioridade.isEmpyt();
+                ListaBaixaPrioridade.isEmpyt() &&
+                ListaBloqueados.isEmpyt();
     }
 }
 
