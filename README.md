@@ -8,7 +8,7 @@ Aluno: ABSALÃO RESPLANDES DA SILVA NETO
 link do repositório: https://github.com/Caxin06/Escalonador.git
 
 
-Descrição do projeto:
+Descrição do projeto:  
 Este projeto implementa um escalonador de processos em Java, utilizando listas encadeadas para organizar processos em diferentes 
 filas de prioridade (alta, média e baixa),além de uma fila de bloqueados.  
 
@@ -30,11 +30,11 @@ Processo.java
 Funcionalidades:
 
 - Leitura de processos a partir de um arquivo `.csv`
-- 
+  
 - Organização em filas de prioridade:
-  - Alta prioridade (1)
-  - Média prioridade (2)
-  - Baixa prioridade (3)
+  - Alta prioridade (1)  
+  - Média prioridade (2)  
+  - Baixa prioridade (3)  
     
 - Prevenção de inanição (processos de prioridade menor também são executados após certo tempo)
 
@@ -68,15 +68,15 @@ java Main Processos.csv ---> caso seu arquivo esteja nomeado como Processos.csv
 
 -------------------------------------------
 
-Exemplo de saida esperada:
+Exemplo de saida esperada:  
 
-CICLO 1
-Estado atual do Scheduler:
-Alta prioridade: P1, P4, P7, P10, P13, P16, P19
-Média prioridade: P2, P5, P8, P11, P14, P17, P20
-Baixa prioridade: P3, P6, P9, P12, P15, P18
-Bloqueados: Nenhum processo
-Contador ciclos alta prioridade: 0
+CICLO 1  
+Estado atual do Scheduler:  
+Alta prioridade: P1, P4, P7, P10, P13, P16, P19  
+Média prioridade: P2, P5, P8, P11, P14, P17, P20  
+Baixa prioridade: P3, P6, P9, P12, P15, P18  
+Bloqueados: Nenhum processo  
+Contador ciclos alta prioridade: 0  
 
 --------------------------------------------------
 
