@@ -5,8 +5,10 @@ Disciplina: Algoritmos e Estrutura de Dados
 Professor: DIMMY MAGALHÃES
 Aluno: ABSALÃO RESPLANDES DA SILVA NETO
 
+link do repositório: https://github.com/Caxin06/Escalonador.git
 
 
+Descrição do projeto:
 Este projeto implementa um escalonador de processos em Java, utilizando listas encadeadas para organizar processos em diferentes 
 filas de prioridade (alta, média e baixa),além de uma fila de bloqueados.  
 
@@ -47,7 +49,7 @@ no terminal ( prompt, Powershell, bash, etc...)
 -------------------------------------------
 
 navegar até a pasta até onde a pasta src está salva, exemplo de comando:
-cd C:Users\SeuUsuario\downloads\src ---> caso sua pasta src que voce baixou no repositório esteja nos downloads
+cd C:Users\SeuUsuario\downloads\src ---> caso sua pasta src que você baixou no repositório esteja nos downloads
 -------------------------------------------
 
 após isso deve compilar os arquivos presentes na pasta, exemplo de comando:
@@ -86,5 +88,7 @@ Contador ciclos alta prioridade: 0
 ```
 Linhas que começam com # são ignoradas.
 O campo recurso pode ser vazio ou DISC.
+
+tambem foram disponibilizados 2 arquivos .csv como exemplo no repositório que foram utilizados para testar o escalonador.
 
 
