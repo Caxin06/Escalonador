@@ -1,11 +1,11 @@
-# Escalonador de Processos (Simulação em Java)
+# Escalonador de Processos (Simulação em Java)  
 
-Informações do Trabalho:
-Disciplina: Algoritmos e Estrutura de Dados
-Professor: DIMMY MAGALHÃES
-Aluno: ABSALÃO RESPLANDES DA SILVA NETO
+Informações do Trabalho:  
+Disciplina: Algoritmos e Estrutura de Dados  
+Professor: DIMMY MAGALHÃES  
+Aluno: ABSALÃO RESPLANDES DA SILVA NETO  
 
-link do repositório: https://github.com/Caxin06/Escalonador.git
+link do repositório: https://github.com/Caxin06/Escalonador.git  
 
 
 Descrição do projeto:  
