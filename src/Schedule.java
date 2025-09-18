@@ -6,6 +6,9 @@ public class Schedule {
     ListaDeProcessos ListaAltaPrioridade = new ListaDeProcessos();
     ListaDeProcessos ListaBloqueados = new ListaDeProcessos();
 
+    // controle global do recurso DISCO
+    private boolean discoOcupado = false;
+
     public void adicionarProcesso(Processo processo) {
         switch (processo.prioridade) {
             case 1:
@@ -14,11 +17,9 @@ public class Schedule {
             case 2:
                 ListaMediaPrioridade.adcionarFim(processo);
                 break;
-
             case 3:
                 ListaBaixaPrioridade.adcionarFim(processo);
                 break;
-
             default:
                 throw new IllegalArgumentException("Prioridade inválida");
         }
@@ -37,15 +38,16 @@ public class Schedule {
         if (processo == null) {
             return false;
         }
-        boolean discoOcupado = false;
+
+        // Verificação do recurso DISCO
         if ("DISCO".equals(processo.recursoNecessario)) {
             if (discoOcupado) {
-                // Reinsere o processo no final da lista, pois recurso está ocupado
-                lista.adcionarFim(processo);
-                System.out.println("Processo " + processo.nome + " (ID " + processo.id + ") aguardando recurso DISCO");
+                // Se o disco já está em uso, manda o processo para a lista de bloqueados
+                ListaBloqueados.adcionarFim(processo);
+                System.out.println("Processo " + processo.nome + " (ID " + processo.id + ") bloqueado aguardando DISCO");
                 return true;
             } else {
-                // Recurso liberado, ocupa o recurso e executa o processo
+                // Ocupa o recurso
                 discoOcupado = true;
                 System.out.println("Processo " + processo.nome + " (ID " + processo.id + ") está usando o recurso DISCO");
             }
@@ -61,12 +63,11 @@ public class Schedule {
                 discoOcupado = false; // libera o recurso
             }
         } else {
-            // Reinsere no final da lista original
+            // Se não terminou, volta para o fim da fila original
             lista.adcionarFim(processo);
         }
         return true;
     }
-
 
     public void executarCicloDeCPU() {
         desbloquearProcesso();
