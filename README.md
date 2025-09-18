@@ -45,19 +45,25 @@ Funcionalidades:
 ---
 
 Como compilar e executar o projeto?
+
 no terminal ( prompt, Powershell, bash, etc...) 
+
 -------------------------------------------
 
 navegar até a pasta até onde a pasta src está salva, exemplo de comando:
+
 cd C:Users\SeuUsuario\downloads\src ---> caso sua pasta src que você baixou no repositório esteja nos downloads
+
 -------------------------------------------
 
 após isso deve compilar os arquivos presentes na pasta, exemplo de comando:
+
 javac *.java
 
 -------------------------------------------
 
 após isso execute um arquivo.csv como entrada na função Main, exemplo de comando:
+
 java Main Processos.csv ---> caso seu arquivo esteja nomeado como Processos.csv
 
 -------------------------------------------
@@ -71,6 +77,7 @@ Média prioridade: P2, P5, P8, P11, P14, P17, P20
 Baixa prioridade: P3, P6, P9, P12, P15, P18
 Bloqueados: Nenhum processo
 Contador ciclos alta prioridade: 0
+
 --------------------------------------------------
 
 
@@ -86,6 +93,7 @@ Contador ciclos alta prioridade: 0
 6,ProcessoF,1,2,DISCO
 7,ProcessoG,3,3,
 ```
+
 Linhas que começam com # são ignoradas.
 O campo recurso pode ser vazio ou DISC.
 
