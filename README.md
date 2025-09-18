@@ -18,12 +18,12 @@ A simulação é alimentada por um **arquivo CSV**, que contém os processos com
 
 Estrutura do Projeto:
 
-src/
-Main.java
-Schedule.java
-ListaDeProcessos.java
-Node.java
-Processo.java
+src/  
+Main.java  
+Schedule.java  
+ListaDeProcessos.java  
+Node.java  
+Processo.java  
 
 ---
 
