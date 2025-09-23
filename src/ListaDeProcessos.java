@@ -13,7 +13,7 @@ public class ListaDeProcessos {
         return cabeça == null;
     }
 
-    public void adcionarFim(Processo processo ) {
+    public void adicionarFim(Processo processo ) {
         Node novoNo = new Node( processo );
 
         if (this.cabeça == null) {
@@ -41,21 +41,7 @@ public class ListaDeProcessos {
         }
         return removido.processo;
     }
-    public Processo removerDoFinal(){
-        if(this.cabeça == null){
-            return null;
-        }
-        Node removido = cauda;
-        if (cabeça == cauda){
-            cabeça = null;
-            cauda = null;
-        } else {
-            cauda.anterior.proximo = null;
-            cauda = cauda.anterior;
-            removido.proximo = null;
-        }
-        return removido.processo;
-    }
+
     public String listarProcessos() {
         if (cabeça == null) {
             return "Nenhum processo";
